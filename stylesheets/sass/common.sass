@@ -1,71 +1,71 @@
-$main-color: lightblue;
-$default-space: 1rem;
-$carousel-image-size: 15rem;
+$main-color: lightblue
+$default-space: 1rem
+$carousel-image-size: 15rem
 
 header
-    background-color: $main-color;
-    padding: $default-space;
+    background-color: $main-color
+    padding: $default-space
 
 main
-    padding: $default-space;
+    padding: $default-space
 
 .carousel 
-    display: flex;
-    align-items: center;
+    display: flex
+    align-items: center
     span
-        margin: $default-space;
-        font-size: 2rem;
+        margin: $default-space
+        font-size: 2rem
     span:hover
-        cursor: pointer;
+        cursor: pointer
     .description
-        width: 60%;
+        width: 60%
         *
-            margin: $default-space;
+            margin: $default-space
         h1
-            font-size: 3rem;
-            font-weight: 500;
+            font-size: 3rem
+            font-weight: 500
         p
-            line-height: 1.5rem;
+            line-height: 1.5rem
         a
-            color: black;
-            text-decoration: none;
-            font-weight: bold;
+            color: black
+            text-decoration: none
+            font-weight: bold
         a:hover
-            text-decoration: underline;
+            text-decoration: underline
 
 .carousel__container
-    width: $carousel-image-size;
-    height: $carousel-image-size;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 5px 5px 1rem .25rem lightslategrey;
+    width: $carousel-image-size
+    height: $carousel-image-size
+    position: relative
+    overflow: hidden
+    box-shadow: 5px 5px 1rem .25rem lightslategrey
 
 .card__item 
-    visibility: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    position: absolute;
-    z-index: 0;
-    transform: translateX(100%);
-    transition: all .5s ease-in-out;
+    visibility: hidden
+    display: flex
+    justify-content: center
+    align-items: center
+    color: white
+    position: absolute
+    z-index: 0
+    transform: translateX(100%)
+    transition: all .5s ease-in-out
     img
-        max-width: 100%;
-        height: auto;
+        max-width: 100%
+        height: auto
 
 .showing 
-    visibility: visible;
-    transform: translateX(0);
-    z-index: 1;
+    visibility: visible
+    transform: translateX(0)
+    z-index: 1
 
 .unshowing 
-    transform: translateX(-100%);
+    transform: translateX(-100%)
 
 footer 
-    background-color: $main-color;
-    padding: $default-space;
-    color: white;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    background-color: $main-color
+    padding: $default-space
+    color: white
+    position: absolute
+    bottom: 0
+    width: 100%
