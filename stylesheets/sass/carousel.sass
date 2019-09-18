@@ -1,6 +1,6 @@
 $main-color: lightblue
 $default-space: 1rem
-$carousel-image-size: 15rem
+$carousel-image-size: 14rem
 
 header
     background-color: $main-color
@@ -12,13 +12,14 @@ main
 .carousel 
     display: flex
     align-items: center
+    flex-flow: wrap
     span
         margin: $default-space
         font-size: 2rem
     span:hover
         cursor: pointer
     .description
-        width: 60%
+        flex: 1
         *
             margin: $default-space
         h1
@@ -34,8 +35,8 @@ main
             text-decoration: underline
 
 .carousel__container
-    width: $carousel-image-size
-    height: $carousel-image-size
+    min-width: $carousel-image-size
+    min-height: $carousel-image-size
     position: relative
     overflow: hidden
     box-shadow: 5px 5px 1rem .25rem lightslategrey
