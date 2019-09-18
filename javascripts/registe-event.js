@@ -1,7 +1,7 @@
 import Carousel from './carousel.js';
 
 const registeMiniCarouselEvent = () => {
-    const miniCarouselContainer = document.getElementById('container');
+    const miniCarouselContainer = document.getElementById('carousel__mini');
     const carousel = new Carousel(miniCarouselContainer);
 
     let intervalSliding = setInterval(carousel.slideCardForward.bind(carousel), 3000);
@@ -11,13 +11,13 @@ const registeMiniCarouselEvent = () => {
         intervalSliding = setInterval(carousel.slideCardForward.bind(carousel), 3000);
     }
 
-    const rightButton = document.getElementById('button__slide-right');
+    const rightButton = document.getElementById('button-next');
     rightButton.addEventListener('click', () => {
         registeIntervalEvent();
         carousel.slideCardForward.bind(carousel)();
     });
 
-    const leftButton = document.getElementById('button__slide-left');
+    const leftButton = document.getElementById('button-prev');
     leftButton.addEventListener('click', () => {
         registeIntervalEvent();
         carousel.slideCardReverse.bind(carousel)();
@@ -26,4 +26,6 @@ const registeMiniCarouselEvent = () => {
     carousel.slideCardForward.bind(carousel)();
 }
 
-registeMiniCarouselEvent();
+window.addEventListener('load',() => {
+    registeMiniCarouselEvent();
+})
