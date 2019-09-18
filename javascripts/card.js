@@ -8,21 +8,28 @@ export default class Card{
     }
 
     makeCardBigger(event){
-        const parent = event.target.parentElement;
+        if(event.target === this.container) return;
+        
+        let parent = event.target.parentElement;
 
+        if(event.target.tagName === 'SPAN')
+            parent = event.target.parentElement.parentElement;
+        
         const selectedItem = this.container.querySelector(`.${CARDITEM_CLASS}.${SELECTED_CLASS}`);
         
         this.removeSelectedCarouselButton();
+        this.unshowCarouselButtons();
 
         if(selectedItem)
             selectedItem.classList.remove(SELECTED_CLASS);
-        
+
         if(parent.id){
             event.target.classList.add(SELECTED_CLASS);
         }else{
             parent.classList.add(SELECTED_CLASS);
         }
 
+        this.showCarouselButtons(event);
         this.selectFirstCarouselButton(event);
     }
 
@@ -51,5 +58,30 @@ export default class Card{
         }
 
         firstCarouselButton.classList.add(SELECTED_CLASS);
+    }
+
+    showCarouselButtons(event){
+        const parent = event.target.parentElement;
+
+        let carouselButtons;
+        if(parent.id){
+            carouselButtons = event.target.querySelectorAll(`.${CAROUSEL_BUTTON_CLASS}`);
+        }else{
+            carouselButtons = parent.querySelectorAll(`.${CAROUSEL_BUTTON_CLASS}`);
+        }
+
+        carouselButtons.forEach((button) => {
+            button.classList.add('show');
+        })
+    }
+
+    unshowCarouselButtons(){
+        const visibleCarouselButtons = this.container.querySelectorAll(`.${CAROUSEL_BUTTON_CLASS}.show`);
+        
+        if(visibleCarouselButtons){
+            visibleCarouselButtons.forEach((button) => {
+                button.classList.remove('show');
+            })
+        }
     }
 }

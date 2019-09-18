@@ -7,11 +7,13 @@ export default class Card{
     }
 
     makeListButton(){
-        let buttonElement = '';
+        let buttonElement = `<div class='carousel-button-container'>`;
 
         this.carouselIndexList.forEach(() => {
             buttonElement += `<span class='carousel-page-button'></span>`;
         })
+        
+        buttonElement += '</div>';
 
         return buttonElement;
     }
