@@ -1,24 +1,25 @@
 const SHOWING_CLASS = 'showing';
 const UNSHOWING_CLASS = 'unshowing';
+const CAROUSELITEM_CLASS = 'carousel__item';
 
 export default class Carousel{
     constructor(slidingContainer){
         this.container = slidingContainer;
-        this.firstCard = slidingContainer.querySelector('.card__item:first-child');
-        this.lastCard = slidingContainer.querySelector('.card__item:last-child');
+        this.firstCarousel = slidingContainer.querySelector(`.${CAROUSELITEM_CLASS}:first-child`);
+        this.lastCarousel = slidingContainer.querySelector(`.${CAROUSELITEM_CLASS}:last-child`);
     }
 
     setStartToEndCard(){
-        this.firstCard = this.container.querySelector('.card__item:first-child');
-        this.lastCard = this.container.querySelector('.card__item:first-child');
+        this.firstCarousel = this.container.querySelector(`.${CAROUSELITEM_CLASS}:first-child`);
+        this.lastCarousel = this.container.querySelector(`.${CAROUSELITEM_CLASS}:first-child`);
     }
 
     slideCardForward(){
         const currentCard = this.container.querySelector(`.${SHOWING_CLASS}`);
 
         const enrollPreviousCard = () => {
-            this.firstCard.classList.add(SHOWING_CLASS);
-            this.lastCard.classList.add(UNSHOWING_CLASS);
+            this.firstCarousel.classList.add(SHOWING_CLASS);
+            this.lastCarousel.classList.add(UNSHOWING_CLASS);
         }
     
         if(currentCard){
@@ -59,13 +60,13 @@ export default class Carousel{
                 if(previousCard.previousElementSibling){
                     enrollPreviousCard(previousCard);
                 }else{
-                    this.lastCard.classList.add(UNSHOWING_CLASS);
+                    this.lastCarousel.classList.add(UNSHOWING_CLASS);
                 }
             }else{
-                this.lastCard.classList.remove(UNSHOWING_CLASS);
-                this.lastCard.classList.add(SHOWING_CLASS);
+                this.lastCarousel.classList.remove(UNSHOWING_CLASS);
+                this.lastCarousel.classList.add(SHOWING_CLASS);
                 currentCard.classList.remove(SHOWING_CLASS);
-                enrollPreviousCard(this.lastCard);
+                enrollPreviousCard(this.lastCarousel);
             }
         }
     }
