@@ -1,4 +1,5 @@
 import Carousel from './carousel.js';
+import Card from './card.js';
 
 const registeMiniCarouselEvent = () => {
     const miniCarouselContainer = document.getElementById('carousel__mini');
@@ -26,6 +27,17 @@ const registeMiniCarouselEvent = () => {
     carousel.slideCardForward.bind(carousel)();
 }
 
+const registeMainCardEvent = () => {
+    const cardContainer = document.getElementById('main-card');
+
+    const cards = new Card(cardContainer);
+
+    cardContainer.addEventListener('click', cards.makeCardBigger.bind(cards));
+    cardContainer.addEventListener('click', cards.selectCarouselButton.bind(cards));
+}
+
+
 window.addEventListener('load',() => {
     registeMiniCarouselEvent();
+    registeMainCardEvent();
 })
