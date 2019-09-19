@@ -110,7 +110,8 @@ const renderMainCard = () => {
 
 const renderMainCarousel = () => {
     const mainCarouselContainer = document.getElementById('main-carousel');
-    const makeCustomElement = (data) => {
+    
+    CarouselComponent.prototype.makeCustomElement = (data) => {
         let customElementString = [];
         data['carousel-data'].forEach((element) => {
             customElementString.push(`<p class='carousel-headline'>${element['description']['head']}</p>`);
@@ -128,9 +129,9 @@ const renderMainCarousel = () => {
             const newCarousel = new CarouselComponent(carouselData, 'long');
             mainCarouselContainer.insertAdjacentHTML('beforeend', newCarousel.render());
             
-            //attach custom carousel element(category)
+            const customElement = newCarousel.makeCustomElement(carouselData);
+            
             const carouselItems = mainCarouselContainer.querySelectorAll(`.${CAROUSELITEM_CLASS}`);
-            const customElement = makeCustomElement(carouselData);
             carouselItems.forEach((element) => {
                 element.querySelector('.description').insertAdjacentHTML('afterbegin', customElement.shift());
             })
