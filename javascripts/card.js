@@ -3,8 +3,9 @@ const SELECTED_CLASS = 'selected';
 const CAROUSEL_BUTTON_CLASS = 'carousel-page-button';
 
 export default class Card{
-    constructor(cardContainer){
+    constructor(cardContainer, carouselList){
         this.container = cardContainer;
+        this.carouselList = carouselList;
     }
 
     makeCardBigger(event){

@@ -2,7 +2,7 @@ const PREV_BUTTON_ID = 'button-prev';
 const NEXT_BUTTON_ID = 'button-next';
 const LONG_VERSION = '__long';
 
-export default class Carousel{
+export class Carousel{
     constructor(data, option){
         this.imageList = data['imageList'];
         this.description = data['description'];

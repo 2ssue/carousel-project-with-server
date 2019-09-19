@@ -1,9 +1,13 @@
-export default class Card{
+export class Card{
     constructor(cardData, name){
         this.cardName = name;
         this.imageLocation = cardData[name]['image'];
         this.carouselIndexList = cardData[name]['list'];
         this.cardColor = cardData[name]['color'];
+    }
+
+    getCarouselList(){
+        return this.carouselIndexList;
     }
 
     makeListButton(){
