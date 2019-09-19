@@ -23,7 +23,7 @@ export class Carousel{
                 listElementString += `<a href='${element.link}'>`;
             listElementString += `<img src='${element.image}'></a>`;
             if(this.descriptionList)
-                listElementString += this.makeDescriptionLine(this.descriptionList[index], );
+                listElementString += this.makeDescriptionLine(this.descriptionList[index]);
             
         })
 
