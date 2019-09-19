@@ -101,7 +101,7 @@ const renderMainCarousel = () => {
     const makeCustomElement = (data) => {
         let customElementString = [];
         data['carousel-data'].forEach((element) => {
-            customElementString.push(`<span class='carousel-headline'>${element['description']['head']}</span>`);
+            customElementString.push(`<p class='carousel-headline'>${element['description']['head']}</p>`);
         })
 
         return customElementString;
@@ -120,7 +120,7 @@ const renderMainCarousel = () => {
             const carouselItems = mainCarouselContainer.querySelectorAll(`.${CAROUSELITEM_CLASS}`);
             const customElement = makeCustomElement(carouselData);
             carouselItems.forEach((element) => {
-                element.insertAdjacentHTML('afterbegin', customElement.shift());
+                element.querySelector('.description').insertAdjacentHTML('afterbegin', customElement.shift());
             })
             
         }
