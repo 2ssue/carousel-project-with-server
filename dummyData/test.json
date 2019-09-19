@@ -1,0 +1,229 @@
+{
+    "Card":{
+        "Ship":{
+            "list": [1,2,3,4],
+            "image": "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-shipping-box-11.png&r=255&g=255&b=255",
+            "color": "lightblue"
+        },
+        "Stream":{
+            "list": [5,6,7,8,9],
+            "image": "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2012/png/iconmonstr-stream-3.png&r=255&g=255&b=255",
+            "color": "palevioletred"
+        },
+        "Shop":{
+            "list": [10,11,12,13],
+            "image": "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-shopping-bag-8.png&r=255&g=255&b=255",
+            "color": "yellowgreen"
+        },
+        "Read":{
+            "list": [14,15],
+            "image": "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2012/png/iconmonstr-book-24.png&r=255&g=255&b=255",
+            "color": "green"
+        },
+        "More":{
+            "list": [16,17],
+            "image": "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2018/png/iconmonstr-text-28.png&r=255&g=255&b=255",
+            "color": "orange"
+        }
+    },
+    "MiniCarousel":{
+        "carousel-data":[
+            {
+                "link": "https://www.amazon.com/gp/product/B073HG37D2/ref=prime_bnft_scrl_asin",
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/61xCOHZwxGL._CB515671388_.jpg"
+            },
+            {
+                "link": "https://www.amazon.com/gp/product/B0753S2LPP/ref=prime_bnft_scrl_asin", 
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/61Gq6E2gyBL._CB515676806_.jpg"
+            },
+            {
+                "link": "https://www.amazon.com/gp/product/B01MU92IPO/ref=prime_bnft_scrl_asin",
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/51Br2ak5DpL._CB515671525_.jpg"
+            },
+            {
+                "link": "https://www.amazon.com/gp/product/B073GJ5DXV/ref=prime_bnft_scrl_asin",
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/514PYMREvIL._CB515671353_.jpg"
+            }
+        ],
+        "description":{
+            "title": "Stay on top of the hottest music",
+            "contents": "These songs and artists are the cream of this month's crop of new music. Check out the latest from Taylor Swift, Old Dominion, Kesha, and Brett Young.",
+            "link": "https://www.amazon.com/gp/dmusic/promotions/PrimeMusic?ref=hawkfire_prime_detail_page_benefit_desc",
+            "link-text": "Explore Prime Music"
+        }
+    },
+    "MainCarousel":{
+        "carousel-data":[
+            {
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_A01._CB514650866_.jpg",
+                "description":{
+                    "head": "FAST, FREE DELIVERY",
+                    "title": "Fast, FREE delivery on over 100 milion items",
+                    "contents": "Super-fast delivery, tens of milions of items, and flexible delivery options to fit your life. Plus, Prime members get FREE One-Day Delivery on tens of milions of items.",
+                    "link": "https://www.amazon.com/b?node=15247183011",
+                    "link-text": "Explore Prime Delivery"
+                }
+            },
+            {
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_A02._CB514650866_.jpg",
+                "description":{
+                    "head":"SAME-DAY DELIVERY",
+                    "title": "FREE Same-Day Delivery",
+                    "contents": "Prime members get FREE Same-Day Delivery on over three million items with qualifying orders.",
+                    "link": "https://www.amazon.com/b?node=8729023011",
+                    "link-text": "Explore Same-Day Delivery"
+                }
+            },
+            {
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_A03._CB514650829_.jpg",
+                "description":{
+                    "head": "RELEASE DAY DELEVERY",
+                    "title": "Skip the lines and get it on release day",
+                    "contents": "No more waiting in line! Choose Free Release-Date Delivery at checkout on qualified items, and your package will be delivered on the release day by 7pm.",
+                    "link": "https://www.amazon.com/b?node=16067347011",
+                    "link-text": "Explore Release-Date Delivery"
+                }
+            },
+            {
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_A04._CB494909365_.jpg",
+                "description":{
+                    "head": "PRIME NOW",
+                    "title": "Ultrafast delivery on thousands of items",
+                    "contents": "Prime Now offers household items and essentials you need everyday plus the best of Amazon, delivered to your doorstep. Choose 2-hour delivery or 1-hour delivery in select cities.",
+                    "link": "https://primenow.amazon.com/onboard?sourceUrl=%2F",
+                    "link-text": "Explore Prime Now"
+                }
+            },
+            {
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_B01._CB457663232_.jpg",
+                "description":{
+                    "head": "PRIME VIDEO",
+                    "title": "Watch movies, TV, live events, and more",
+                    "contents": "As a Prime member, you can watch exclusive Amazon Originals and thousands of popular movies and TV shows—all at no extra cost. Watch at home or on the go with practically any device.",
+                    "link": "https://www.amazon.com/b/ref=dvm_us_aq_np_dhb_be_optpvt1?node=2858778011",
+                    "link-text": "Explore Prime Video"
+                }
+            },
+            {
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_B02._CB513839286_.jpg",
+                "description":{
+                    "head": "TWITCH PRIME",
+                    "title": "Free Games & Loot with Twitch Prime",
+                    "contents": "Gamers can get free games, in-game items, a free Twitch channel subscription every month and more with Twitch Prime.",
+                    "link": "https://twitch.amazon.com/prime",
+                    "link-text": "Explore Twitch Prime"
+                }
+            },
+            {
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_B03._CB513839286_.jpg",
+                "description":{
+                    "head": "PRIME MUSIC",
+                    "title": "Millions of songs for every moment",
+                    "contents": "As a Prime member, you can stream over 2 million songs ad free, listen on any Echo device, and take your music anywhere with offline listening.",
+                    "link": "https://www.amazon.com/gp/dmusic/promotions/PrimeMusic?ref=hawkfire_prime_detail_page_benefit_desc",
+                    "link-text": "Explore Prime Music"
+                }
+            },
+            {
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/digital/video/merch/2018/Other/AVD12272_PrimeContentUpdate/Card_B04_AVD12272_PrimeContentUpdate_1280x400_en_US._CB474157036_.jpg",
+                "description":{
+                    "head": "AMAZON ORIGINALS",
+                    "title": "Enjoy Amazon Original series and more",
+                    "contents": "Super-fast delivery, tens of milions of items, and flexible delivery options to fit your life. Plus, Prime members get FREE One-Day Delivery on tens of milions of items.",
+                    "link": "https://www.amazon.com/gp/video/storefront/ref=dvm_us_aq_np_dhb_be_optorigt1?ie=UTF8&merchId=originals1",
+                    "link-text": "Explore Amazon Originals"
+                }
+            },
+            {
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_B05._CB514650828_.jpg",
+                "description":{
+                    "head": "AUDIBLE CHANNELS",
+                    "title": "Original audio programs for life on the go",
+                    "contents": "Audible Channels are free with your Prime membership. Enjoy original audio series and playlists handcrafted for every interest. Just download the Audible app and start listening.",
+                    "link": "https://www.audible.com/mt/getchannels",
+                    "link-text": "Explore Audible Channels"
+                }
+            },
+            {
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_C06._CB495022579_.jpg",
+                "description":{
+                    "head": "PRIME AT WHOLE FOODS MARKET",
+                    "title": "Our healthiest benefit yet",
+                    "contents": "Exclusive savings for Prime members in all US stores, 5% Back for eligible Prime members with the Amazon Prime Rewards Visa Card, and 2-hour delivery with Prime Now in select cities (more soon)",
+                    "link": "https://www.amazon.com/wholefoods",
+                    "link-text": "Explore Prime at Whole Foods"
+                }
+            },
+            {
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_C01_revised._CB502880131_.jpg",
+                "description":{
+                    "head": "ALEXA VOICE SHOPPING",
+                    "title": "The simplest way to shop. Just ask Alexa.",
+                    "contents": "With Alexa, shopping for essentials and reordering your favorite items from Amazon has never been easier.",
+                    "link": "https://www.amazon.com/alexa-voice-shopping/b?ie=UTF8&node=14552177011",
+                    "link-text": "Learn more about Alexa and Prime"
+                }
+            },
+            {
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_C03._CB511882458_.jpg",
+                "description":{
+                    "head": "JUST WITH PRIME",
+                    "title": "Exclusive brands and deals available only to Prime members",
+                    "contents": "As a Prime member enjoy early access to deals, Prime exclusive brands, and savings.",
+                    "link": "https://www.amazon.com/b?ie=UTF8&node=16205654011",
+                    "link-text": "Shop Prime Member Exclusives"
+                }
+            },
+            {
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_C04._CB514650828_.jpg",
+                "description":{
+                    "head": "AMAZON FAMILY",
+                    "title": "Save on supplies for the family",
+                    "contents": "Prime members save 20% off both diapers and baby food when they have 5 or more subscriptions arriving",
+                    "link": "https://www.amazon.com/gp/family/signup",
+                    "link-text": "Explore Family Supplies"
+                }
+            },
+            {
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_D01._CB514706473_.jpg",
+                "description":{
+                    "head": "RRIME READING",
+                    "title": "Prime members read free",
+                    "contents": "As a Prime member, you can now read as much as you like from over a thousand top Kindle books, magazines, short works, books with Audible narration, comics, children's books and more—all at no additional cost.",
+                    "link": "https://www.amazon.com/kindle-dbs/fd/prime-pr",
+                    "link-text": "Explore Prime Reading"
+                }
+            },
+            {
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_D02._CB513839283_.jpg",
+                "description":{
+                    "head": "AMAZON FIRST READS",
+                    "title": "Read next month's new releases today",
+                    "contents": "Each month, Prime members can download one editors' pick for free--before the official publication date. Downloaded titles are yours to keep.",
+                    "link": "https://www.amazon.com/kindlefirst",
+                    "link-text": "Learn more about Amazon First Reads"
+                }
+            },
+            {
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_E03._CB513839888_.jpg",
+                "description":{
+                    "head": "5% BACK",
+                    "title": "Earn more with Prime Rewards",
+                    "contents": "Eligible Prime members can earn 5% back at Amazon.com using the Amazon Prime Rewards Visa Card or the Amazon Prime Store card. All Prime members earn 2% rewards with Amazon Prime Reload.",
+                    "link": "https://www.amazon.com/b?node=16914437011&ref=acqNPrewards",
+                    "link-text": "Learn more about Prime Rewards"
+                }
+            },
+            {
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_E01._CB513839282_.jpg",
+                "description":{
+                    "head": "AMAZON PHOTOS",
+                    "title": "Unlimited, free photo storage",
+                    "contents": "Back up and share your photos with unlimited photo storage. Add your photos to the free app to see them on all your devices.",
+                    "link": "https://www.amazon.com/b?node=13234696011",
+                    "link-text": "Explore Amazon Photos"
+                }
+            }
+        ]
+    }
+}

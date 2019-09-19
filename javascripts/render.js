@@ -77,7 +77,7 @@ const renderMainCard = () => {
     const mainCardContainer = document.getElementById('main-card');
     let carouselList = [];
     
-    fetch('../test.json')
+    fetch('../dummyData/test.json')
     .then(response => response.json())
     .then((data) => {
         const cardData = data.Card;
@@ -97,7 +97,7 @@ const renderMainCard = () => {
 const renderMainCarousel = () => {
     const mainCarouselContainer = document.getElementById('main-carousel');
 
-    fetch('../test.json')
+    fetch('../dummyData/test.json')
     .then(response => response.json())
     .then((data) => {
         const carouselData = data.MainCarousel;
@@ -114,7 +114,7 @@ const renderMainCarousel = () => {
 const renderMiniCarousel = () => {
     const miniCarouselContainer = document.getElementById('mini-carousel');
 
-    fetch('../test.json')
+    fetch('../dummyData/test.json')
     .then(response => response.json())
     .then(data => {
         const carouselData = data.MiniCarousel;
