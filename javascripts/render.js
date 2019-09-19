@@ -10,17 +10,17 @@ const registeMiniCarouselEvent = () => {
     let intervalSliding = setInterval(carousel.slideCardForward.bind(carousel), 3000);
 
     const registeIntervalEvent = () => {
-        clearInterval(intervalSliding);a
+        clearInterval(intervalSliding);
         intervalSliding = setInterval(carousel.slideCardForward.bind(carousel), 3000);
     }
 
-    const rightButton = document.getElementById('button-next');
+    const rightButton = document.getElementById('button-next__mini');
     rightButton.addEventListener('click', () => {
         registeIntervalEvent();
         carousel.slideCardForward.bind(carousel)();
     });
 
-    const leftButton = document.getElementById('button-prev');
+    const leftButton = document.getElementById('button-prev__mini');
     leftButton.addEventListener('click', () => {
         registeIntervalEvent();
         carousel.slideCardReverse.bind(carousel)();
@@ -29,13 +29,30 @@ const registeMiniCarouselEvent = () => {
     carousel.slideCardForward.bind(carousel)();
 }
 
-const registeMainCardEvent = (carouselList) => {
+const registeMainCardEvent = () => {
     const cardContainer = document.getElementById('main-card');
 
-    const cards = new Card(cardContainer, carouselList);
-
-    cardContainer.addEventListener('click', cards.makeCardBigger.bind(cards));
+    cardContainer.addEventListener('click', cards.cardClickEventHandler.bind(cards));
     cardContainer.addEventListener('click', cards.selectCarouselButton.bind(cards));
+    cards.makeCardBigger();
+}
+
+const registeMainCarouselEvent = () => {
+    const mainCarouselContainer = document.getElementById('main-carousel');
+
+    const carousel = new Carousel(mainCarouselContainer);
+
+    const rightButton = document.getElementById('button-next__long');
+    rightButton.addEventListener('click', () => {
+        carousel.slideCardForward.bind(carousel)();
+    });
+
+    const leftButton = document.getElementById('button-prev__long');
+    leftButton.addEventListener('click', () => {
+        carousel.slideCardReverse.bind(carousel)();
+    })
+
+    carousel.slideCardForward.bind(carousel)();
 }
 
 const renderMainCard = () => {
@@ -59,6 +76,23 @@ const renderMainCard = () => {
     .catch(err => console.log(err));
 }
 
+const renderMainCarousel = () => {
+    const mainCarouselContainer = document.getElementById('main-carousel');
+
+    fetch('../test.json')
+    .then(response => response.json())
+    .then((data) => {
+        const carouselData = data.MainCarousel;
+
+        if(carouselData){
+            const newCarousel = new CarouselComponent(carouselData, 'long');
+            //attach custom carousel element(category)
+            mainCarouselContainer.insertAdjacentHTML('beforeend', newCarousel.render());
+        }
+        registeMainCarouselEvent();
+    })
+}
+
 const renderMiniCarousel = () => {
     const miniCarouselContainer = document.getElementById('mini-carousel');
 
@@ -68,8 +102,9 @@ const renderMiniCarousel = () => {
         const carouselData = data.MiniCarousel;
 
         if(carouselData){
-            const newCarousel = new CarouselComponent(carouselData);
+            const newCarousel = new CarouselComponent(carouselData, 'mini');
             miniCarouselContainer.insertAdjacentHTML('beforeend', newCarousel.render());
+            miniCarouselContainer.insertAdjacentHTML('beforeend', newCarousel.makeDescriptionLine(carouselData['description']));
         }
 
         registeMiniCarouselEvent();
@@ -77,7 +112,6 @@ const renderMiniCarousel = () => {
     .catch(err => console.log(err));
 }
 
+renderMainCarousel();
 renderMainCard();
 renderMiniCarousel();
-// registeMainCardEvent();
-// registeMiniCarouselEvent();
