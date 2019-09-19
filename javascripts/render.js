@@ -3,6 +3,8 @@ import Carousel from './carousel.js';
 import {Carousel as CarouselComponent }from './components/carousel.js';
 import {Card as CardComponent} from './components/card.js';
 
+const CAROUSELITEM_CLASS = 'carousel__item';
+
 const registeMiniCarouselEvent = () => {
     const miniCarouselContainer = document.getElementById('carousel__mini');
     const carousel = new Carousel(miniCarouselContainer);
@@ -96,6 +98,14 @@ const renderMainCard = () => {
 
 const renderMainCarousel = () => {
     const mainCarouselContainer = document.getElementById('main-carousel');
+    const makeCustomElement = (data) => {
+        let customElementString = [];
+        data['carousel-data'].forEach((element) => {
+            customElementString.push(`<span class='carousel-headline'>${element['description']['head']}</span>`);
+        })
+
+        return customElementString;
+    }
 
     fetch('../dummyData/test.json')
     .then(response => response.json())
@@ -104,8 +114,15 @@ const renderMainCarousel = () => {
 
         if(carouselData){
             const newCarousel = new CarouselComponent(carouselData, 'long');
-            //attach custom carousel element(category)
             mainCarouselContainer.insertAdjacentHTML('beforeend', newCarousel.render());
+            
+            //attach custom carousel element(category)
+            const carouselItems = mainCarouselContainer.querySelectorAll(`.${CAROUSELITEM_CLASS}`);
+            const customElement = makeCustomElement(carouselData);
+            carouselItems.forEach((element) => {
+                element.insertAdjacentHTML('afterbegin', customElement.shift());
+            })
+            
         }
         registeMainCarouselEvent();
     })
