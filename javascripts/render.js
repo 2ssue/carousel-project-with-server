@@ -4,6 +4,7 @@ import {Carousel as CarouselComponent }from './components/carousel.js';
 import {Card as CardComponent} from './components/card.js';
 
 const CAROUSELITEM_CLASS = 'carousel__item';
+const CARDITEM_CLASS = 'card__item';
 
 const registeMiniCarouselEvent = () => {
     const miniCarouselContainer = document.getElementById('carousel__mini');
@@ -52,9 +53,20 @@ const registeMainCardEvent = (carouselList) => {
         else return;
     });
 
+    Card.prototype.changeCustomElementDesign = () => {
+        carouselList.forEach((element, index) => {
+            const currentColor = mainContainer.querySelector(`.${CARDITEM_CLASS}:nth-child(${index + 1})`).style.backgroundColor;
+            element.forEach(childElement => {
+                const currentCarousel = mainContainer.querySelector(`.${CAROUSELITEM_CLASS}:nth-child(${childElement})`);
+                currentCarousel.querySelector(`.carousel-headline`).style.backgroundColor = currentColor;
+            })
+        })
+    }
+
     cardContainer.addEventListener('click', cards.cardClickEventHandler.bind(cards));
     cardContainer.addEventListener('click', cards.selectCarouselButton.bind(cards));
     cards.makeCardBigger();
+    cards.changeCustomElementDesign();
 }
 
 const registeMainCarouselEvent = () => {
