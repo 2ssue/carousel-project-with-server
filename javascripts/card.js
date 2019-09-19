@@ -105,6 +105,59 @@ export default class Card{
         }
     }
 
+    changeBox(currentCard, direction){
+        if(direction < 0){
+            const previousCard = currentCard.previousElementSibling;
+            
+            if(previousCard){
+                currentCard.classList.remove(SELECTED_CLASS);
+                this.makeCardBigger(previousCard, true);
+                previousCard.querySelector(`.${CAROUSEL_BUTTON_CONTAINER_CLASS} :last-child`).classList.add(SELECTED_CLASS);
+            }else{
+                const lastSiblingCard = currentCard.parentElement.lastElementChild;
+                this.makeCardBigger(lastSiblingCard, true);
+                lastSiblingCard.querySelector(`.${CAROUSEL_BUTTON_CONTAINER_CLASS} :last-child`).classList.add(SELECTED_CLASS);
+            }
+        }else{
+            const nextCard = currentCard.nextElementSibling;
+
+            if(nextCard){
+                currentCard.classList.remove(SELECTED_CLASS);
+                this.makeCardBigger(nextCard, true);
+                nextCard.querySelector(`.${CAROUSEL_BUTTON_CONTAINER_CLASS} :first-child`).classList.add(SELECTED_CLASS);
+            }else{
+                const firstSiblingCard = currentCard.parentElement.firstElementChild;
+                this.makeCardBigger(firstSiblingCard, true);
+                firstSiblingCard.querySelector(`.${CAROUSEL_BUTTON_CONTAINER_CLASS} :first-child`).classList.add(SELECTED_CLASS);
+            }
+        }
+    }
+
+    changeCarouselButton(event){
+        const currentCard = this.container.querySelector(`.${CARDITEM_CLASS}.${SELECTED_CLASS}`);
+        const currentButton = currentCard.querySelector(`.${CAROUSEL_BUTTON_CLASS}.${SELECTED_CLASS}`);
+
+        if(event.target.id === PREV_CAROUSEL_BUTTON){
+            const previousButton = currentButton.previousElementSibling;
+            
+            if(previousButton){
+                currentButton.classList.remove(SELECTED_CLASS);    
+                previousButton.classList.add(SELECTED_CLASS);
+            }else{
+                this.changeBox(currentCard, -1);
+            }
+        }else{
+            const nextButton = currentButton.nextElementSibling;
+
+            if(nextButton){
+                currentButton.classList.remove(SELECTED_CLASS);
+                nextButton.classList.add(SELECTED_CLASS);
+            }else{
+                this.changeBox(currentCard, 1);
+            }
+        }
+    }
+
     getElementIndex(element){
         let index = 0;
         

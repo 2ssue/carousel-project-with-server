@@ -32,8 +32,23 @@ const registeMiniCarouselEvent = () => {
 const registeMainCardEvent = (carouselList) => {
     const mainContainer = document.getElementById('main');
     const cardContainer = document.getElementById('main-card');
+    
+    const rightButton = document.getElementById('button-next__long');
+    const leftButton = document.getElementById('button-prev__long');
 
     const cards = new Card(mainContainer, carouselList);
+
+    rightButton.addEventListener('click', (event) => {
+        if(event.isTrusted)
+            cards.changeCarouselButton.bind(cards)(event);
+        else return;
+    });
+
+    leftButton.addEventListener('click',  (event) => {
+        if(event.isTrusted)
+            cards.changeCarouselButton.bind(cards)(event);
+        else return;
+    });
 
     cardContainer.addEventListener('click', cards.cardClickEventHandler.bind(cards));
     cardContainer.addEventListener('click', cards.selectCarouselButton.bind(cards));
