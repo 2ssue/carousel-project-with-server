@@ -29,8 +29,11 @@ const registeMiniCarouselEvent = () => {
     carousel.slideCardForward.bind(carousel)();
 }
 
-const registeMainCardEvent = () => {
+const registeMainCardEvent = (carouselList) => {
+    const mainContainer = document.getElementById('main');
     const cardContainer = document.getElementById('main-card');
+
+    const cards = new Card(mainContainer, carouselList);
 
     cardContainer.addEventListener('click', cards.cardClickEventHandler.bind(cards));
     cardContainer.addEventListener('click', cards.selectCarouselButton.bind(cards));
