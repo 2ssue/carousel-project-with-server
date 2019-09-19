@@ -4,7 +4,6 @@ const NEXT_BUTTON_ID = 'button-next';
 export class Carousel{
     constructor(data, name){
         this.carouselData = data['carousel-data'];
-        // this.descriptionList = data['description-list'];
         this.className = name;
     }
 
