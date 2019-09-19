@@ -2,6 +2,7 @@ $default-space: 1rem
 
 .carousel 
     display: flex
+    justify-content: center
     align-items: center
     flex-flow: wrap
     margin-top: $default-space
@@ -11,7 +12,8 @@ $default-space: 1rem
     span:hover
         cursor: pointer
     .description
-        flex: 1
+        margin-top: calc(#{$default-space} * 2)
+        min-width: 40%
         *
             margin: 0 $default-space $default-space
         h1
@@ -38,7 +40,7 @@ $default-space: 1rem
     position: absolute
     z-index: 0
     transform: translateX(100%)
-    transition: all .5s ease-in-out
+    transition: all .1s ease-in-out
     img
         max-width: 100%
         height: auto
