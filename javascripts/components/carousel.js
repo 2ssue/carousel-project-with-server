@@ -1,47 +1,53 @@
 const PREV_BUTTON_ID = 'button-prev';
 const NEXT_BUTTON_ID = 'button-next';
-const LONG_VERSION = '__long';
 
 export class Carousel{
-    constructor(data, option){
-        this.imageList = data['imageList'];
-        this.description = data['description'];
-        this.option = option;
+    constructor(data, name){
+        this.imageList = data['image-list'];
+        this.descriptionList = data['description-list'];
+        this.className = name;
     }
 
     render(){
         let [leftButton, rightButton] = this.makeButtonTag();
 
-        return `${leftButton}${this.makeUnorderedListTag()}${this.option?'':rightButton}${this.makeDescriptionLine()}${this.option?rightButton:''}`;
+        return `${leftButton}${this.makeUnorderedListTag()}${this.option?'':rightButton}`;
     }
 
     makeListTag(){
         let listElementString = '';
         
-        this.imageList.forEach((element) => {
+        this.imageList.forEach((element, index) => {
             listElementString += `<li class='carousel__item'>`;
-            listElementString += `<a href='${element.link}'>`;
+            if(element['link'])
+                listElementString += `<a href='${element.link}'>`;
             listElementString += `<img src='${element.image}'></a>`;
+            if(this.descriptionList)
+                listElementString += this.makeDescriptionLine(this.descriptionList[index], );
+            
         })
 
         return listElementString;
     }
 
     makeUnorderedListTag(){
-        let unorderedListString =  `<ul class='carousel__container mini' id='carousel__mini'>`;
+        let unorderedListString =  `<ul class='carousel__container ${this.className}' id='carousel__${this.className}'>`;
         
         unorderedListString += this.makeListTag() + '</ul>';
         
         return unorderedListString;
     }
 
-    makeDescriptionLine(){
-        return `<div class='description'><h1>${this.description.title}</h1><p>${this.description.contents}</p><a href=${this.description.link}>${this.description['link-text']}</a>`
+    makeDescriptionLine(description){
+        if(description)
+            return `<div class='description'><h1>${description.title}</h1><p>${description.contents}</p><a href=${description.link}>${description['link-text']} &#187;</a>`
+        else
+            return '';
     }
 
     makeButtonTag(){
-        const leftButton = `<span id=${PREV_BUTTON_ID}${this.option ? LONG_VERSION : ''}>&#60;</span>`
-        const rightButton = `<span id=${NEXT_BUTTON_ID}${this.option ? LONG_VERSION : ''}>&#62;</span>`
+        const leftButton = `<span id=${PREV_BUTTON_ID}__${this.className}>&#60;</span>`
+        const rightButton = `<span id=${NEXT_BUTTON_ID}__${this.className}>&#62;</span>`
     
         return [leftButton, rightButton];
     }
