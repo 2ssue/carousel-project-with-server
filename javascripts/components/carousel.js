@@ -11,7 +11,7 @@ export class Carousel{
     render(){
         let [leftButton, rightButton] = this.makeButtonTag();
 
-        return `${leftButton}${this.makeUnorderedListTag()}${this.option?'':rightButton}`;
+        return `${leftButton}${this.makeUnorderedListTag()}${rightButton}`;
     }
 
     makeListTag(){
