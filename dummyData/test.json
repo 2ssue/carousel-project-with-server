@@ -2,27 +2,27 @@
     "Card":{
         "Ship":{
             "list": [1,2,3,4],
-            "image": "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-shipping-box-11.png&r=255&g=255&b=255",
+            "image": "https://image.flaticon.com/icons/svg/609/609361.svg",
             "color": "#1F618D"
         },
         "Stream":{
             "list": [5,6,7,8,9],
-            "image": "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2012/png/iconmonstr-stream-3.png&r=255&g=255&b=255",
+            "image": "https://image.flaticon.com/icons/svg/2009/2009961.svg",
             "color": "#E2082A"
         },
         "Shop":{
             "list": [10,11,12,13],
-            "image": "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-shopping-bag-8.png&r=255&g=255&b=255",
+            "image": "https://image.flaticon.com/icons/svg/138/138259.svg",
             "color": "#FF004F"
         },
         "Read":{
             "list": [14,15],
-            "image": "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2012/png/iconmonstr-book-24.png&r=255&g=255&b=255",
+            "image": "https://image.flaticon.com/icons/svg/327/327775.svg",
             "color": "#00622C"
         },
         "More":{
             "list": [16,17],
-            "image": "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2018/png/iconmonstr-text-28.png&r=255&g=255&b=255",
+            "image": "https://image.flaticon.com/icons/svg/942/942751.svg",
             "color": "#FFA818"
         }
     },
