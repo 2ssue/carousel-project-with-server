@@ -105,7 +105,7 @@ export default class Card{
         }
     }
 
-    changeBox(currentCard, direction){
+    changeCard(currentCard, direction){
         if(direction < 0){
             const previousCard = currentCard.previousElementSibling;
             
