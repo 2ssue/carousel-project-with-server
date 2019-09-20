@@ -144,7 +144,7 @@ export default class Card{
                 currentButton.classList.remove(SELECTED_CLASS);    
                 previousButton.classList.add(SELECTED_CLASS);
             }else{
-                this.changeBox(currentCard, -1);
+                this.changeCard(currentCard, -1);
             }
         }else{
             const nextButton = currentButton.nextElementSibling;
@@ -153,7 +153,7 @@ export default class Card{
                 currentButton.classList.remove(SELECTED_CLASS);
                 nextButton.classList.add(SELECTED_CLASS);
             }else{
-                this.changeBox(currentCard, 1);
+                this.changeCard(currentCard, 1);
             }
         }
     }
