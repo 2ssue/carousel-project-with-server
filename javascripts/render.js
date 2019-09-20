@@ -87,11 +87,11 @@ const registeMainCarouselEvent = () => {
     carousel.slideCardForward.bind(carousel)();
 }
 
-const renderMainCard = () => {
+async function renderMainCard(){
     const mainCardContainer = document.getElementById('main-card');
     let carouselList = [];
     
-    fetch('../dummyData/test.json')
+    await fetch('../dummyData/test.json')
     .then(response => response.json())
     .then((data) => {
         const cardData = data.Card;
@@ -108,7 +108,7 @@ const renderMainCard = () => {
     .catch(err => console.log(err));
 }
 
-const renderMainCarousel = () => {
+async function renderMainCarousel(){
     const mainCarouselContainer = document.getElementById('main-carousel');
     
     CarouselComponent.prototype.makeCustomElement = (data) => {
@@ -120,7 +120,7 @@ const renderMainCarousel = () => {
         return customElementString;
     }
 
-    fetch('../dummyData/test.json')
+    await fetch('../dummyData/test.json')
     .then(response => response.json())
     .then((data) => {
         const carouselData = data.MainCarousel;
@@ -141,10 +141,10 @@ const renderMainCarousel = () => {
     })
 }
 
-const renderMiniCarousel = () => {
+async function renderMiniCarousel(){
     const miniCarouselContainer = document.getElementById('mini-carousel');
 
-    fetch('../dummyData/test.json')
+    await fetch('../dummyData/test.json')
     .then(response => response.json())
     .then(data => {
         const carouselData = data.MiniCarousel;
@@ -160,6 +160,8 @@ const renderMiniCarousel = () => {
     .catch(err => console.log(err));
 }
 
-renderMainCarousel();
-renderMainCard();
-renderMiniCarousel();
+renderMainCarousel().then(() => {
+    renderMainCard().then(() => {
+        renderMiniCarousel();
+    });
+});
