@@ -3,27 +3,27 @@
         "Ship":{
             "list": [1,2,3,4],
             "image": "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-shipping-box-11.png&r=255&g=255&b=255",
-            "color": "lightblue"
+            "color": "#1F618D"
         },
         "Stream":{
             "list": [5,6,7,8,9],
             "image": "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2012/png/iconmonstr-stream-3.png&r=255&g=255&b=255",
-            "color": "palevioletred"
+            "color": "#E2082A"
         },
         "Shop":{
             "list": [10,11,12,13],
             "image": "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-shopping-bag-8.png&r=255&g=255&b=255",
-            "color": "yellowgreen"
+            "color": "#FF004F"
         },
         "Read":{
             "list": [14,15],
             "image": "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2012/png/iconmonstr-book-24.png&r=255&g=255&b=255",
-            "color": "green"
+            "color": "#00622C"
         },
         "More":{
             "list": [16,17],
             "image": "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2018/png/iconmonstr-text-28.png&r=255&g=255&b=255",
-            "color": "orange"
+            "color": "#FFA818"
         }
     },
     "MiniCarousel":{
@@ -55,7 +55,7 @@
     "MainCarousel":{
         "carousel-data":[
             {
-                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_A01._CB514650866_.jpg",
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/JJ/220x220-shipping._CB468966400_.jpg",
                 "description":{
                     "head": "FAST, FREE DELIVERY",
                     "title": "Fast, FREE delivery on over 100 milion items",
@@ -65,7 +65,7 @@
                 }
             },
             {
-                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_A02._CB514650866_.jpg",
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/JJ/220x220-family-discounts._CB468966677_.jpg",
                 "description":{
                     "head":"SAME-DAY DELIVERY",
                     "title": "FREE Same-Day Delivery",
@@ -75,7 +75,7 @@
                 }
             },
             {
-                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_A03._CB514650829_.jpg",
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/JJ/220x220-echo-shopping._CB468966762_.jpg",
                 "description":{
                     "head": "RELEASE DAY DELEVERY",
                     "title": "Skip the lines and get it on release day",
@@ -85,7 +85,7 @@
                 }
             },
             {
-                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_A04._CB494909365_.jpg",
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/JJ/220x220-exclusive-deals._CB468966671_.jpg",
                 "description":{
                     "head": "PRIME NOW",
                     "title": "Ultrafast delivery on thousands of items",
@@ -95,7 +95,7 @@
                 }
             },
             {
-                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_B01._CB457663232_.jpg",
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/JJ/220x220-Prime-video._CB468966796_.jpg",
                 "description":{
                     "head": "PRIME VIDEO",
                     "title": "Watch movies, TV, live events, and more",
@@ -105,7 +105,7 @@
                 }
             },
             {
-                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_B02._CB513839286_.jpg",
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/JJ/220x220-twitch._CB468966624_.jpg",
                 "description":{
                     "head": "TWITCH PRIME",
                     "title": "Free Games & Loot with Twitch Prime",
@@ -115,7 +115,7 @@
                 }
             },
             {
-                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_B03._CB513839286_.jpg",
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/JJ/220x220-Prime-music._CB468966908_.jpg",
                 "description":{
                     "head": "PRIME MUSIC",
                     "title": "Millions of songs for every moment",
@@ -125,7 +125,7 @@
                 }
             },
             {
-                "image": "https://images-na.ssl-images-amazon.com/images/G/01/digital/video/merch/2018/Other/AVD12272_PrimeContentUpdate/Card_B04_AVD12272_PrimeContentUpdate_1280x400_en_US._CB474157036_.jpg",
+                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/JJ/220x220-reading._CB468966524_.jpg",
                 "description":{
                     "head": "AMAZON ORIGINALS",
                     "title": "Enjoy Amazon Original series and more",
@@ -135,7 +135,7 @@
                 }
             },
             {
-                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_B05._CB514650828_.jpg",
+                "image": "https://image.flaticon.com/icons/svg/2127/2127607.svg",
                 "description":{
                     "head": "AUDIBLE CHANNELS",
                     "title": "Original audio programs for life on the go",
@@ -145,7 +145,7 @@
                 }
             },
             {
-                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_C06._CB495022579_.jpg",
+                "image": "https://image.flaticon.com/icons/svg/706/706164.svg",
                 "description":{
                     "head": "PRIME AT WHOLE FOODS MARKET",
                     "title": "Our healthiest benefit yet",
@@ -155,7 +155,7 @@
                 }
             },
             {
-                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_C01_revised._CB502880131_.jpg",
+                "image": "https://image.flaticon.com/icons/svg/1379/1379954.svg",
                 "description":{
                     "head": "ALEXA VOICE SHOPPING",
                     "title": "The simplest way to shop. Just ask Alexa.",
@@ -165,7 +165,7 @@
                 }
             },
             {
-                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_C03._CB511882458_.jpg",
+                "image": "https://image.flaticon.com/icons/svg/859/859270.svg",
                 "description":{
                     "head": "JUST WITH PRIME",
                     "title": "Exclusive brands and deals available only to Prime members",
@@ -175,7 +175,7 @@
                 }
             },
             {
-                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_C04._CB514650828_.jpg",
+                "image": "https://image.flaticon.com/icons/svg/1530/1530840.svg",
                 "description":{
                     "head": "AMAZON FAMILY",
                     "title": "Save on supplies for the family",
@@ -185,7 +185,7 @@
                 }
             },
             {
-                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_D01._CB514706473_.jpg",
+                "image": "https://image.flaticon.com/icons/svg/2069/2069689.svg",
                 "description":{
                     "head": "RRIME READING",
                     "title": "Prime members read free",
@@ -195,7 +195,7 @@
                 }
             },
             {
-                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_D02._CB513839283_.jpg",
+                "image": "https://image.flaticon.com/icons/svg/164/164949.svg",
                 "description":{
                     "head": "AMAZON FIRST READS",
                     "title": "Read next month's new releases today",
@@ -205,7 +205,7 @@
                 }
             },
             {
-                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_E03._CB513839888_.jpg",
+                "image": "https://image.flaticon.com/icons/svg/1086/1086741.svg",
                 "description":{
                     "head": "5% BACK",
                     "title": "Earn more with Prime Rewards",
@@ -215,7 +215,7 @@
                 }
             },
             {
-                "image": "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_E01._CB513839282_.jpg",
+                "image": "https://image.flaticon.com/icons/svg/2126/2126636.svg",
                 "description":{
                     "head": "AMAZON PHOTOS",
                     "title": "Unlimited, free photo storage",
