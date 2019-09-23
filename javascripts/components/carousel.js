@@ -1,53 +1,73 @@
-const PREV_BUTTON_ID = 'button-prev';
-const NEXT_BUTTON_ID = 'button-next';
+const SHOWING_CLASS = 'showing';
+const UNSHOWING_CLASS = 'unshowing';
+const CAROUSELITEM_CLASS = 'carousel__item';
 
-export class Carousel{
-    constructor(data, name){
-        this.carouselData = data['carousel-data'];
-        this.className = name;
+export default class Carousel{
+    constructor(slidingContainer){
+        this.container = slidingContainer;
+        this.firstCarousel = slidingContainer.querySelector(`.${CAROUSELITEM_CLASS}:first-child`);
+        this.lastCarousel = slidingContainer.querySelector(`.${CAROUSELITEM_CLASS}:last-child`);
     }
 
-    render(){
-        let [leftButton, rightButton] = this.makeButtonTag();
-
-        return `${leftButton}${this.makeUnorderedListTag()}${rightButton}`;
+    setStartToEndCard(){
+        this.firstCarousel = this.container.querySelector(`.${CAROUSELITEM_CLASS}:first-child`);
+        this.lastCarousel = this.container.querySelector(`.${CAROUSELITEM_CLASS}:first-child`);
     }
 
-    makeListTag(){
-        let listElementString = '';
-        
-        this.carouselData.forEach((element) => {
-            listElementString += `<li class='carousel__item'>`;
-            if(element['link'])
-                listElementString += `<a href='${element.link}'>`;
-            listElementString += `<img src='${element.image}'></a>`;
-            if(element['description'])
-                listElementString += this.makeDescriptionLine(element['description']);
-            
-        })
+    slideCardForward(){
+        const currentCard = this.container.querySelector(`.${SHOWING_CLASS}`);
 
-        return listElementString;
-    }
-
-    makeUnorderedListTag(){
-        let unorderedListString =  `<ul class='carousel__container ${this.className}' id='carousel__${this.className}'>`;
-        
-        unorderedListString += this.makeListTag() + '</ul>';
-        
-        return unorderedListString;
-    }
-
-    makeDescriptionLine(description){
-        if(description)
-            return `<div class='description'><h1>${description.title}</h1><p>${description.contents}</p><a href=${description.link}>${description['link-text']} &#187;</a>`
-        else
-            return '';
-    }
-
-    makeButtonTag(){
-        const leftButton = `<span id=${PREV_BUTTON_ID}__${this.className}>&#60;</span>`
-        const rightButton = `<span id=${NEXT_BUTTON_ID}__${this.className}>&#62;</span>`
+        const enrollPreviousCard = () => {
+            this.firstCarousel.classList.add(SHOWING_CLASS);
+            this.lastCarousel.classList.add(UNSHOWING_CLASS);
+        }
     
-        return [leftButton, rightButton];
+        if(currentCard){
+            currentCard.classList.remove(SHOWING_CLASS);
+            const nextCard = currentCard.nextElementSibling;
+            const previousCard = this.container.querySelector(`.${UNSHOWING_CLASS}`);
+    
+            if(previousCard){
+                previousCard.classList.remove(UNSHOWING_CLASS);
+            }
+            if(nextCard){
+                nextCard.classList.add(SHOWING_CLASS);
+                currentCard.classList.add(UNSHOWING_CLASS);
+            }else{
+                enrollPreviousCard();
+                currentCard.classList.add(UNSHOWING_CLASS);
+            }
+        }else{
+            enrollPreviousCard();
+        }
+    }
+
+    slideCardReverse(){
+        let currentCard = this.container.querySelector(`.${SHOWING_CLASS}`);
+        let previousCard = currentCard.previousElementSibling;
+    
+        const enrollPreviousCard = (currentCard) => {
+            const previousCard = currentCard.previousElementSibling;
+            previousCard.classList.add(UNSHOWING_CLASS);
+        }
+    
+        if(currentCard){
+            if(previousCard){
+                currentCard.classList.remove(SHOWING_CLASS);
+                previousCard.classList.remove(UNSHOWING_CLASS);
+                previousCard.classList.add(SHOWING_CLASS);
+                
+                if(previousCard.previousElementSibling){
+                    enrollPreviousCard(previousCard);
+                }else{
+                    this.lastCarousel.classList.add(UNSHOWING_CLASS);
+                }
+            }else{
+                this.lastCarousel.classList.remove(UNSHOWING_CLASS);
+                this.lastCarousel.classList.add(SHOWING_CLASS);
+                currentCard.classList.remove(SHOWING_CLASS);
+                enrollPreviousCard(this.lastCarousel);
+            }
+        }
     }
 }
