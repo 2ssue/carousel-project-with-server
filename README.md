@@ -18,8 +18,9 @@ This project is clone practice version of [amazon](https://www.amazon.com/amazon
 |   ├─ components           # 캐로셀, 카드 컴포넌트
 |   |   ├─ card.js
 |   |   └─ carousel.js
-|   ├─ card.js              # 카드 동작 클래스
-|   ├─ carousel.js          # 캐러셀 동작 클래스
+|   ├─ ui                   # 캐로셀, 카드 UI
+|   |   ├─ card.js
+|   |   └─ carousel.js
 |   └─ render.js            # 카드 및 캐러셀 렌더링
 ├─ stylesheets  
 |   ├─ sass                 # 컴포넌트 별 stylesheet
