@@ -1,7 +1,7 @@
-import Card from './card.js';
-import Carousel from './carousel.js';
-import {Carousel as CarouselComponent }from './components/carousel.js';
-import {Card as CardComponent} from './components/card.js';
+import Card from './components/card.js';
+import Carousel from './components/carousel.js';
+import {Carousel as CarouselUI }from './ui/carousel.js';
+import {Card as CardUI} from './ui/card.js';
 
 const CAROUSELITEM_CLASS = 'carousel__item';
 const CARDITEM_CLASS = 'card__item';
@@ -98,7 +98,7 @@ async function renderMainCard(){
 
         if(cardData){
             for(let card in cardData){
-                const newCard = new CardComponent(cardData, card);
+                const newCard = new CardUI(cardData, card);
                 carouselList.push(newCard.getCarouselList());
                 mainCardContainer.insertAdjacentHTML('beforeend', newCard.render());
             }
@@ -111,7 +111,7 @@ async function renderMainCard(){
 async function renderMainCarousel(){
     const mainCarouselContainer = document.getElementById('main-carousel');
     
-    CarouselComponent.prototype.makeCustomElement = (data) => {
+    CarouselUI.prototype.makeCustomElement = (data) => {
         let customElementString = [];
         data['carousel-data'].forEach((element) => {
             customElementString.push(`<p class='carousel-headline'>${element['description']['head']}</p>`);
@@ -126,7 +126,7 @@ async function renderMainCarousel(){
         const carouselData = data.MainCarousel;
 
         if(carouselData){
-            const newCarousel = new CarouselComponent(carouselData, 'long');
+            const newCarousel = new CarouselUI(carouselData, 'long');
             mainCarouselContainer.insertAdjacentHTML('beforeend', newCarousel.render());
             
             const customElement = newCarousel.makeCustomElement(carouselData);
@@ -150,7 +150,7 @@ async function renderMiniCarousel(){
         const carouselData = data.MiniCarousel;
 
         if(carouselData){
-            const newCarousel = new CarouselComponent(carouselData, 'mini');
+            const newCarousel = new CarouselUI(carouselData, 'mini');
             miniCarouselContainer.insertAdjacentHTML('beforeend', newCarousel.render());
             miniCarouselContainer.insertAdjacentHTML('beforeend', newCarousel.makeDescriptionLine(carouselData['description']));
         }
