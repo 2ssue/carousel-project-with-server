@@ -8,7 +8,7 @@ export default class Util{
         return new Promise((resolve, reject) => {
             fetch(url, postData).then((res) => {
                 if(res.status === 200){
-                    res.text().then((res) => {
+                    res.json().then((res) => {
                         resolve(res);
                     });
                 }else reject(res.statusText);
@@ -19,7 +19,7 @@ export default class Util{
         return new Promise((resolve, reject) => {
             fetch(url).then((res) => {
                 if(res.status === 200){
-                    res.text().then((res) => {
+                    res.json().then((res) => {
                         resolve(res);
                     });
                 }else reject(res.statusText);
