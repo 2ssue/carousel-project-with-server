@@ -25,12 +25,14 @@ class Login{
             method: 'POST',
             body: JSON.stringify(sendingContents),
             headers: {'Content-Type': 'application/json'}
-        }).then((res) => res.json())
-        .then((res) => {
+        }).then((res) => {
             if(res.result === 'admin'){
-                href.location = './admin.html';
+                alert('admin!');
+                // location.href = './admin.html';
+            }else if(res.result === 'user'){
+                alert('user!');
             }else{
-                alert('user?');
+                alert('아이디 또는 비밀번호를 확인해주세요');
             }
         })
         .catch((err) => {
