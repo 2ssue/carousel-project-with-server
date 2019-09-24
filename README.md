@@ -9,23 +9,21 @@ This project is clone practice version of [amazon](https://www.amazon.com/amazon
 ## [🏠 temparol Homepage: https://2ssue.github.io/carousel-project/](https://2ssue.github.io/carousel-project/)
 
 ## project structure
-### front-end
 ```
 .
-├─ dummyData                # 더미데이터
-|   └─ test.json
-├─ javascripts              # 자바스크립트 
-|   ├─ components           # 캐로셀, 카드 컴포넌트
-|   |   ├─ card.js
-|   |   └─ carousel.js
-|   ├─ ui                   # 캐로셀, 카드 UI
-|   |   ├─ card.js
-|   |   └─ carousel.js
-|   └─ render.js            # 카드 및 캐러셀 렌더링
-├─ stylesheets  
-|   ├─ sass                 # 컴포넌트 별 stylesheet
-|   └─ css
-└─ index.html   
+├─bin
+├─component                 # 백엔드 컴포넌트
+├─public                    # 프론트엔드 파일
+│  ├─dummyData              # 캐러셀 테스트 임시 데이터
+│  ├─images                 
+│  ├─javascripts
+│  │  ├─components          # 프론트엔드 컴포넌트
+│  │  └─ui                  # 캐러셀, 카드 UI 생성 클래스
+│  └─stylesheets
+│      ├─css
+│      └─sass
+├─routes                    # 백엔드 라우팅
+└─views                     # 백엔드 템플릿
 ```
 
 ## Author
