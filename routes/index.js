@@ -1,32 +1,64 @@
 var express = require('express');
 var router = express.Router();
-const DatabaseManager = require('../component/db.js');
+const session = require('express-session');
+const auth = require('./auth.js');
+const passport = require('passport');
 
-router.post('/login', function(req, res, next) {
-  const userDb = new DatabaseManager({
-    host: '106.10.54.244',
-    user: 'user',
-    password: 'mypassword',
-    database: 'amazon_db'
-  }, 'user');
+router.use(session({
+  secret: 'asdf1234qwer!@#$',
+  cookie:{
+    path: '/',
+    httpOnly: true,
+    secure: false,
+    maxAge: 1000 * 60 * 60
+  },
+  resave: true,
+  saveUninitialized: true
+}));
 
-  const column = 'userid, auth';
-  const condition = `userid='${req.body.userid}' AND userpassword='${req.body.password}'`;
-  userDb.select(column, condition).then(data => {
-    let message = {result: ''};
+router.use(passport.initialize());
+router.use(passport.session());
+auth();
 
-    if(data.length > 0){
-      if(data[0].auth > 0){
-        message.result = 'admin';
-      }else{
-        message.result = 'user';
-      }
-    }else{
-      message.result = 'fail';
-    }
+router.post('/login', passport.authenticate('local', {
+  failureRedirect: '/login'
+}), (req, res) => {
+  if(req.user[0].auth > 0){
+    res.redirect('/admin');
+  }else{
+    res.redirect('/');
+  }
+});
 
-    res.send(JSON.stringify(message));
-  });  
+router.get('/logout', function(req, res, next){
+  req.logout();
+  req.session.save(function(err){
+    res.redirect('/');
+  });
+});
+
+router.get('/', function(req, res, next){
+  const printObject = {
+    title: 'CAROUSEL PARTY',
+    link: '/login',
+    linktext: '로그인'
+  }
+
+  if(req.user){
+    printObject.user = `${req.user.name}님`;
+    printObject.link = '/logout';
+    printObject.linktext = '로그아웃';
+  }
+
+  res.render('index', printObject);
+});
+
+router.get('/login', function(req, res, next){
+  res.render('login', {
+    title: 'Login',
+    link:'/',
+    linktext: '돌아가기'
+  })
 });
 
 module.exports = router;

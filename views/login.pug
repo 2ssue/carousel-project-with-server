@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    link(rel='stylesheet' href='./stylesheets/css/login.css')
+    form
+        div
+            input#userid.input(type='text' placeholder='아이디' required='')
+        div
+            input#password.input(type='password' placeholder='비밀번호' required='')
+        div
+            button(type='submit') 로그인
+
+    script(type='module' src='./javascripts/login.js')

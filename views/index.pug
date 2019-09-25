@@ -1,5 +1,12 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  link(rel='stylesheet' href='./stylesheets/css/card.css')
+  link(rel='stylesheet' href='./stylesheets/css/carousel.css')
+  section#main.main-section
+    div#main-card.card__container
+    div#main-carousel.carousel
+  hr
+  section#mini-carousel.carousel
+
+  script(type='module' src='./javascripts/render.js')
