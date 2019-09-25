@@ -62,3 +62,4 @@ typings/
 
 node_modules
 css
+db_access_info.js
