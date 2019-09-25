@@ -8,22 +8,18 @@ export default class Util{
         return new Promise((resolve, reject) => {
             fetch(url, postData).then((res) => {
                 if(res.status === 200){
-                    res.json().then((res) => {
-                        resolve(res);
-                    });
+                    resolve(res);
                 }else reject(res.statusText);
-            })
+            }).catch(err => console.error(err));
         })
     }
     get(url){
         return new Promise((resolve, reject) => {
             fetch(url).then((res) => {
                 if(res.status === 200){
-                    res.json().then((res) => {
-                        resolve(res);
-                    });
+                    resolve(res);
                 }else reject(res.statusText);
-            })
+            }).catch(err => console.error(err));
         })
     }
     getValue = (base, id) => this.$(`#${id}`, base).value;
