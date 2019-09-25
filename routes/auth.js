@@ -1,6 +1,7 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const DatabaseManager = require('../components/db.js');
+const db = require('../db_access_info.js');
 
 module.exports = () => {
     passport.use(new LocalStrategy({
@@ -9,12 +10,7 @@ module.exports = () => {
         passReqToCallback: false
     },
         function(username, password, done){
-            const userDB = new DatabaseManager({
-                host: '106.10.54.244',
-                user: 'user',
-                password: 'mypassword',
-                database: 'amazon_db'
-            }, 'user');
+            const userDB = new DatabaseManager(new db().getUser(), 'user');
 
             const column = 'userid, name, auth';
             const condition = `userid='${username}' AND userpassword='${password}'`;

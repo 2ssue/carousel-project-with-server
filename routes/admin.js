@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const DatabaseManager = require('../components/db.js');
+const db = require('../db_access_info.js');
 const Templator = require('../components/template.js');
 const multer = require('multer');
 const path = require('path');
@@ -22,12 +23,14 @@ const script = (message, redirect) => {
 }
 
 router.get('/get/users', function(req, res, next){
-    const userDB = new DatabaseManager({
-        host: '106.10.54.244',
-        user: 'admin',
-        password: 'adminpassword123!',
-        database: 'amazon_db'
-    }, 'user');
+    const userDB = new DatabaseManager(new db().getAdmin(), 'user');
+
+    // const userDB = new DatabaseManager({
+    //     host: '106.10.54.244',
+    //     user: 'admin',
+    //     password: 'adminpassword123!',
+    //     database: 'amazon_db'
+    // }, 'user');
 
     const column = `userid, name, email, gender, CASE WHEN auth=0 THEN '사용자' WHEN auth>0 THEN '관리자' END`;
 
