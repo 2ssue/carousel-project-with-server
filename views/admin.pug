@@ -11,6 +11,9 @@ block content
             button#button-lookup 사용자 조회
             table
         div#item-updata
-            h1#change-items 아이템 변경
-
+            h1#change-items 아이템 업로드
+            form(action='admin/upload' method='post' enctype='multipart/form-data')
+                input(type='file' name='imagefile')
+                input(type='submit')
+            
     script(type='module' src='./javascripts/admin.js')
