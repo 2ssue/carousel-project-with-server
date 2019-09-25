@@ -27,14 +27,6 @@ class Login{
             headers: {'Content-Type': 'application/json'}
         }).then((res) => {
             location.href = res.url;
-            // if(res.result === 'admin'){
-            //     alert('admin!');
-            //     // location.href = './admin.html';
-            // }else if(res.result === 'user'){
-            //     alert('user!');
-            // }else{
-            //     alert('아이디 또는 비밀번호를 확인해주세요');
-            // }
         })
         .catch((err) => {
             console.log(err);
