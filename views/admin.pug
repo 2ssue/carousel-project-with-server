@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    link(rel='stylesheet' href='./stylesheets/css/admin.css')
+    nav
+        a(href='#lookup-users') 전체 사용자 조회
+        a(href='#change-items') 아이템 업데이트
+    section
+        div#users
+            h1#lookup-users 전체 사용자 조회 및 권한 변경
+            button#button-lookup 사용자 조회
+            table
+        div#item-updata
+            h1#change-items 아이템 변경
+
+    script(type='module' src='./javascripts/admin.js')
