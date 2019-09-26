@@ -123,7 +123,6 @@ async function renderMainCarousel(){
         return customElementString;
     }
 
-    // await fetch('../dummyData/test.json')
     await fetch('/data/get/main-carousel')
     .then(response => response.json())
     .then((data) => {
