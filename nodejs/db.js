@@ -54,6 +54,26 @@ class DatabaseManager{
             return false;
         } 
     }
+    async insert(column='*', values){
+        if(!values) return;
+        try{
+            const connection = await this.connect().then(res => res);
+            try{
+                const query = `INSERT INTO ${this.table}(${column}) VALUES(${values})`;
+                const result = await connection.query(query);
+                connection.release();
+                return result;
+            }catch(err){
+                console.log('[INSERT]Query error');
+                console.log(err);
+                connection.release();
+                return false;
+            }
+        }catch(err){
+            console.log('[INSERT]DB error');
+            return false;
+        }
+    }
 }
 
 

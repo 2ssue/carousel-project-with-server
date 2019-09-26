@@ -8,9 +8,9 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 const userDB = new DatabaseManager(new db().getUser(), 'card');
+const adminDB = new DatabaseManager(new db().getAdmin(), 'card');
 
 router.get('/get/card', function(req, res, next){
-  // const userDB = new DatabaseManager(new db().getUser(), 'card');
   userDB.changeUseTable('card');
   userDB.select().then(card => {
     res.send(JSON.stringify(card));
@@ -36,6 +36,42 @@ router.get('/get/main-carousel', function(req, res, next){
   userDB.select().then(carousel => {
     res.send(JSON.stringify(carousel));
   });
+});
+
+router.post('/add/card', function(req, res, next){
+  adminDB.changeUseTable('card');
+  adminDB.insert(req.body.column, req.body.values).then(result => {
+    res.send(result);
+  })
+});
+
+router.post('/add/mini', function(req, res, next){
+  adminDB.changeUseTable('mini_carousel');
+  adminDB.insert(req.body.column, req.body.values).then(result => {
+    res.send(result);
+  })
+});
+
+router.post('/add/long', function(req, res, next){
+  adminDB.changeUseTable('main_carousel');
+  adminDB.insert(req.body.column, req.body.values).then(result => {
+    res.send(result);
+  })
+});
+
+const multer = require('multer');
+const storage = multer.diskStorage({
+    destination: function(req, file, cb){
+        cb(null, 'public/images/');
+    },
+    filename: function(req, file, cb){
+      cb(null, file.originalname);
+    }
+});
+const upload = multer({storage: storage});
+
+router.post('/upload/image', upload.single('imagefile'), function(req, res){
+  res.send(`<script>location.href='/admin'</script>`);
 });
 
 

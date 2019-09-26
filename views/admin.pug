@@ -11,6 +11,21 @@ block content
             button#button-lookup 사용자 조회
             section#table-container
         div#item-updata
-            h1#change-items 아이템 관리
-            form(action='admin/upload' method='post' enctype='multipart/form-data')
+            h1#change-items 아이템 추가
+            form(action='data/upload/image' method='post' enctype='multipart/form-data')
+                div
+                    span 업로드 이미지
+                    input(type='file' name='imagefile')
+                    input(type='submit' value='업로드' id='image-upload' style='visibility:hidden')
+            form
+                div
+                    label(for='ui') 아이템 종류 선택
+                    select(name='ui' id='ui')
+                        option(value='' hidden disabled selected) 아이템 종류
+                        option(value='card') 메인카드
+                        option(value='mini') 미니 캐로셀
+                        option(value='long') 카드 캐로셀
+                div#input-section
+                div(class='show-right')
+                    input(type='button' value='업로드' id='upload')
     script(type='module' src='./javascripts/admin.js')
