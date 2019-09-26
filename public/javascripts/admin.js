@@ -19,16 +19,8 @@ const cardElement = `
     <input type='text' id='carousel_count'>`;
 
 const miniCarouselElement = `
-    <label for='title'>제목</label>
-    <input type='text' id='title'>
-    <label for='content'>내용</label>
-    <input type='text' id='content'>
     <label for='image_link'>이미지 링크</label>
-    <input type='text' id='image_link'>
-    <label for='link'>링크</label>
-    <input type='text' id='link'>
-    <label for='link_text'>링크 커버 텍스트</label>
-    <input type='text' id='link_text'>`;
+    <input type='text' id='image_link'>`;
 
 const mainCarouselElemnt = `
     <label for='head'>헤더 제목</label>
