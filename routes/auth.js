@@ -1,6 +1,6 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const DatabaseManager = require('../components/db.js');
+const DatabaseManager = require('../nodejs/db.js');
 const db = require('../db_access_info.js');
 
 module.exports = () => {

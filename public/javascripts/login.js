@@ -1,4 +1,4 @@
-import Util from './utils.js'
+import Util from './util/utils.js'
 
 const _ = new Util();
 
