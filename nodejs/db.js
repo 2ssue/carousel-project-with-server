@@ -6,6 +6,10 @@ class DatabaseManager{
         this.table = tableName;
     }
 
+    changeUseTable(tableName){
+        this.table = tableName;
+    }
+
     async connect(){
         return this.dbpool.getConnection(async conn => conn);
     }

@@ -3,7 +3,7 @@ const NEXT_BUTTON_ID = 'button-next';
 
 export class Carousel{
     constructor(data, name){
-        this.carouselData = data['carousel-data'];
+        this.carouselData = data;
         this.className = name;
     }
 
@@ -18,11 +18,11 @@ export class Carousel{
         
         this.carouselData.forEach((element) => {
             listElementString += `<li class='carousel__item'>`;
-            if(element['link'])
-                listElementString += `<a href='${element.link}'>`;
-            listElementString += `<img src='${element.image}'></a>`;
-            if(element['description'])
-                listElementString += this.makeDescriptionLine(element['description']);
+            if(element['image_link'])
+                listElementString += `<a href='${element['image_link']}'>`;
+            listElementString += `<img src='${element['image_src']}'></a>`;
+            if(element['title'])
+                listElementString += this.makeDescriptionLine(element);
             
         })
 
@@ -39,7 +39,7 @@ export class Carousel{
 
     makeDescriptionLine(description){
         if(description)
-            return `<div class='description'><h1>${description.title}</h1><p>${description.contents}</p><a href=${description.link}>${description['link-text']} &#187;</a>`
+            return `<div class='description'><h1>${description.title}</h1><p>${description.content}</p><a href=${description.link}>${description['link_text']} &#187;</a>`
         else
             return '';
     }

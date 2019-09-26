@@ -2,9 +2,11 @@ import Card from './components/card.js';
 import Carousel from './components/carousel.js';
 import {Carousel as CarouselUI }from './ui/carousel.js';
 import {Card as CardUI} from './ui/card.js';
+import Util from './util/utils.js';
 
 const CAROUSELITEM_CLASS = 'carousel__item';
 const CARDITEM_CLASS = 'card__item';
+const _ = new Util();
 
 const registeMiniCarouselEvent = () => {
     const miniCarouselContainer = document.getElementById('carousel__mini');
@@ -94,7 +96,7 @@ async function renderMainCard(){
     await fetch('/data/get/card')
     .then(response => response.json())
     .then((data) => {
-        if(data){
+        if(data[0]){
             let previousCardCarouselIndex = 1;
 
             for(let i  = 0; i < data.length; i++){
@@ -103,8 +105,8 @@ async function renderMainCard(){
                 carouselList.push(newCard.getCarouselList());
                 mainCardContainer.insertAdjacentHTML('beforeend', newCard.render());
             }
+            registeMainCardEvent(carouselList);
         }
-        registeMainCardEvent(carouselList);
     })
     .catch(err => console.log(err));
 }
@@ -114,48 +116,47 @@ async function renderMainCarousel(){
     
     CarouselUI.prototype.makeCustomElement = (data) => {
         let customElementString = [];
-        data['carousel-data'].forEach((element) => {
-            customElementString.push(`<p class='carousel-headline'>${element['description']['head']}</p>`);
+        data.forEach((element) => {
+            customElementString.push(`<p class='carousel-headline'>${element['head']}</p>`);
         })
 
         return customElementString;
     }
 
-    await fetch('../dummyData/test.json')
+    // await fetch('../dummyData/test.json')
+    await fetch('/data/get/main-carousel')
     .then(response => response.json())
     .then((data) => {
-        const carouselData = data.MainCarousel;
-
-        if(carouselData){
-            const newCarousel = new CarouselUI(carouselData, 'long');
+        if(data[0]){
+            const newCarousel = new CarouselUI(data, 'long');
             mainCarouselContainer.insertAdjacentHTML('beforeend', newCarousel.render());
             
-            const customElement = newCarousel.makeCustomElement(carouselData);
+            const customElement = newCarousel.makeCustomElement(data);
             
             const carouselItems = mainCarouselContainer.querySelectorAll(`.${CAROUSELITEM_CLASS}`);
             carouselItems.forEach((element) => {
                 element.querySelector('.description').insertAdjacentHTML('afterbegin', customElement.shift());
             })
-            
+            registeMainCarouselEvent();   
         }
-        registeMainCarouselEvent();
     })
 }
 
 async function renderMiniCarousel(){
     const miniCarouselContainer = document.getElementById('mini-carousel');
 
-    await fetch('../dummyData/test.json')
+    await fetch('/data/get/mini-carousel')
     .then(response => response.json())
     .then(data => {
-        const carouselData = data.MiniCarousel;
-
-        if(carouselData){
-            const newCarousel = new CarouselUI(carouselData, 'mini');
-            miniCarouselContainer.insertAdjacentHTML('beforeend', newCarousel.render());
-            miniCarouselContainer.insertAdjacentHTML('beforeend', newCarousel.makeDescriptionLine(carouselData['description']));
+        if(data[0]){
+            const newCarousel = new CarouselUI(data, 'mini');
+            miniCarouselContainer.insertAdjacentHTML('afterbegin', newCarousel.render());
+            _.get('/data/get/mini/description').then(res => res.json())
+            .then(data => {
+                if(data[0])
+                    miniCarouselContainer.insertAdjacentHTML('beforeend', newCarousel.makeDescriptionLine(data[0]));
+            })
         }
-
         registeMiniCarouselEvent();
     })
     .catch(err => console.log(err));
