@@ -91,14 +91,15 @@ async function renderMainCard(){
     const mainCardContainer = document.getElementById('main-card');
     let carouselList = [];
     
-    await fetch('../dummyData/test.json')
+    await fetch('/data/get/card')
     .then(response => response.json())
     .then((data) => {
-        const cardData = data.Card;
+        if(data){
+            let previousCardCarouselIndex = 1;
 
-        if(cardData){
-            for(let card in cardData){
-                const newCard = new CardUI(cardData, card);
+            for(let i  = 0; i < data.length; i++){
+                const newCard = new CardUI(data[i], previousCardCarouselIndex);
+                previousCardCarouselIndex = newCard.getlastCarouselIndex()+ 1;
                 carouselList.push(newCard.getCarouselList());
                 mainCardContainer.insertAdjacentHTML('beforeend', newCard.render());
             }

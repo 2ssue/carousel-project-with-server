@@ -1,9 +1,22 @@
 export class Card{
-    constructor(cardData, name){
-        this.cardName = name;
-        this.imageLocation = cardData[name]['image'];
-        this.carouselIndexList = cardData[name]['list'];
-        this.cardColor = cardData[name]['color'];
+    constructor(card, startCarouselIndex){
+        this.cardName = card.title;
+        this.carouselIndexList = [];
+        this.setCarouselList(startCarouselIndex, card.carousel_count);
+        this.imageLocation = card['image_src'];
+        this.cardColor = card['background_color'];
+    }
+
+    setCarouselList(startIndex, count){
+        for(let i = 0; i < count; i++){
+            this.carouselIndexList.push(startIndex + i);
+        }
+    }
+
+    getlastCarouselIndex(){
+        const lastIndex = this.carouselIndexList.pop();
+        this.carouselIndexList.push(lastIndex);
+        return lastIndex;
     }
 
     getCarouselList(){
