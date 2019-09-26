@@ -9,12 +9,8 @@ block content
         div#users
             h1#lookup-users 사용자 관리
             button#button-lookup 사용자 조회
-            table
+            section#table-container
         div#item-updata
             h1#change-items 아이템 관리
             form(action='admin/upload' method='post' enctype='multipart/form-data')
-                span 이미지 업로드
-                input(type='file' name='imagefile')
-                input(type='submit')
-            
     script(type='module' src='./javascripts/admin.js')
