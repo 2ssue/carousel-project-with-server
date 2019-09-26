@@ -2,17 +2,6 @@ const express = require('express');
 const router = express.Router();
 const DatabaseManager = require('../nodejs/db.js');
 const db = require('../db_access_info.js');
-const multer = require('multer');
-const path = require('path');
-const storage = multer.diskStorage({
-    destination: function(req, file, cb){
-        cb(null, 'public/images/');
-    },
-    filename: function(req, file, cb){
-        cb(null, Date.now() + path.extname(file.originalname))
-    }
-});
-const upload = multer({storage: storage});
 const userDB = new DatabaseManager(new db().getAdmin(), 'user');
 
 const script = (message, redirect) => {
@@ -43,18 +32,24 @@ async function getUser() {
 }
 
 router.get('/get/users', async function(req, res, next){
-    const user = await getUser().then(user => user);
-    res.send(JSON.stringify(user));
+    if(!req.user) res.send(script('관리자가 아닙니다', '/'));
+    else if(req.user.auth > 0){
+        const user = await getUser().then(user => user);
+        res.send(JSON.stringify(user));
+    }else{
+        res.send(script('관리자가 아닙니다', '/'));
+    }
 });
 
 router.post('/change/users/auth', async function(req, res, next){
-    userDB.update('auth', req.body.userlist, req.body.authValue);
-    const user = await getUser().then(user => user);
-    res.send(JSON.stringify(user));
-});
-
-router.post('/upload', upload.single('imagefile'), function(req, res){
-    res.send(script('이미지가 성공적으로 업로드 되었습니다', '/admin'));
+    if(!req.user) res.send(script('관리자가 아닙니다', '/'));
+    else if(req.user.auth > 0){
+        userDB.update('auth', req.body.userlist, req.body.authValue);
+        const user = await getUser().then(user => user);
+        res.send(JSON.stringify(user));
+    }else{
+        res.send(script('관리자가 아닙니다', '/'));
+    }
 });
 
 module.exports = router;
