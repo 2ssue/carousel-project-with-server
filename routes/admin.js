@@ -11,17 +11,26 @@ const script = (message, redirect) => {
     return script;
 }
 
-router.get('/', function(req, res, next){
-    if(!req.user){
+const checkUser = (req, res, next) => {
+    if(!req.user) 
+        req.notUser = true;
+    else if(req.user.auth > 0)
+        req.admin = true;
+    
+    next();
+}
+
+router.get('/', checkUser, function(req, res, next){
+    if(req.notUser){
         res.send(script('로그인이 필요합니다', '/login'));
-    }else if(req.user.auth > 0){
-      res.render('admin', {
-        title: 'ADMIN',
-        user: `${req.user.name}님`,
-        link: '/logout',
-        linktext: '로그아웃'
-      });
-    }else if(req.user){
+    }else if(req.admin){
+        res.render('admin', {
+            title: 'ADMIN',
+            user: `${req.user.name}님`,
+            link: '/logout',
+            linktext: '로그아웃'
+        });
+    }else{
         res.send(script('관리자가 아닙니다', '/'));
     }
 });
@@ -31,9 +40,8 @@ async function getUser() {
     return userDB.select(column).then(async user => user);
 }
 
-router.get('/get/users', async function(req, res, next){
-    if(!req.user) res.send(script('관리자가 아닙니다', '/'));
-    else if(req.user.auth > 0){
+router.get('/get/users', checkUser, async function(req, res, next){
+    if(req.admin){
         const user = await getUser().then(user => user);
         res.send(JSON.stringify(user));
     }else{
@@ -41,9 +49,8 @@ router.get('/get/users', async function(req, res, next){
     }
 });
 
-router.post('/change/users/auth', async function(req, res, next){
-    if(!req.user) res.send(script('관리자가 아닙니다', '/'));
-    else if(req.user.auth > 0){
+router.post('/change/users/auth', checkUser, async function(req, res, next){
+    if(req.admin){
         userDB.update('auth', req.body.userlist, req.body.authValue);
         const user = await getUser().then(user => user);
         res.send(JSON.stringify(user));

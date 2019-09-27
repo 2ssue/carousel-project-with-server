@@ -7,8 +7,16 @@ const db = require('../db_access_info.js');
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
+
 const userDB = new DatabaseManager(new db().getUser(), 'card');
 const adminDB = new DatabaseManager(new db().getAdmin(), 'card');
+
+const checkAdmin = (req, res, next) => {
+  if(!req.user) 
+    next('invalid user');
+  else if(req.user.auth > 0)
+    next();
+}
 
 router.get('/get/card', function(req, res, next){
   userDB.changeUseTable('card');
@@ -38,21 +46,21 @@ router.get('/get/main-carousel', function(req, res, next){
   });
 });
 
-router.post('/add/card', function(req, res, next){
+router.post('/add/card', checkAdmin, function(req, res, next){
   adminDB.changeUseTable('card');
   adminDB.insert(req.body.column, req.body.values).then(result => {
     res.send(result);
-  })
+  });
 });
 
-router.post('/add/mini', function(req, res, next){
+router.post('/add/mini', checkAdmin, function(req, res, next){
   adminDB.changeUseTable('mini_carousel');
   adminDB.insert(req.body.column, req.body.values).then(result => {
     res.send(result);
-  })
+  });
 });
 
-router.post('/add/long', function(req, res, next){
+router.post('/add/long', checkAdmin, function(req, res, next){
   adminDB.changeUseTable('main_carousel');
   adminDB.insert(req.body.column, req.body.values).then(result => {
     res.send(result);
@@ -70,7 +78,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({storage: storage});
 
-router.post('/upload/image', upload.single('imagefile'), function(req, res){
+router.post('/upload/image', checkAdmin, upload.single('imagefile'), function(req, res){
   res.send(`<script>location.href='/admin'</script>`);
 });
 
