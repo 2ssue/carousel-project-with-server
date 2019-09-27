@@ -27,7 +27,7 @@ $ npm start
 
 This file is organized like this.
 
-```
+```javascript
 class DBInfo{
     constructor(){
         this.host = '...';
