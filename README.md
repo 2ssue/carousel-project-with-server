@@ -7,6 +7,7 @@ This project is clone practice version of [amazon](https://www.amazon.com/amazon
 </a>
 
 ## [🏠 FRONTEND ONLY PAGE](https://2ssue.github.io/carousel-project/)
+이 페이지는 프론트엔드만 존재하는 페이지로, 새로운 캐로셀을 추가하거나 유저 정보를 관리할 수 있는 관리자 페이지가 포함되어있지 않습니다.
 
 # Install
 ```bash
