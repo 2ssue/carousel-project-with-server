@@ -6,7 +6,6 @@ This project is clone practice version of [amazon](https://www.amazon.com/amazon
 <img alt="project-management" src="https://img.shields.io/badge/project--management-wiki-blue" target="_blank" />
 </a>
 
-## [🏠 PUBLISH PAGE(WITH BACKEND)](http://106.10.54.244/)
 ## [🏠 FRONTEND ONLY PAGE](https://2ssue.github.io/carousel-project/)
 
 # Install
